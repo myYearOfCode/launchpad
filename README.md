@@ -4,6 +4,12 @@ This project is a simple react app to help make flash card use easier. Flash car
 
 This is intended to reinforce the knowledge my classmates and I are getting in the 24th cohort of [Launch Academy](http://launchacademy.com), so external pull requests will be viewed with the lens of 'if we have been taught it yet' since nothing is more frustrating than a flash card for a lesson you haven't been taught yet! Feel free to fork, and after graduation more advanced content will be accepted.
 
+## Install
+
+Launchers: paste this into your terminal `git clone https://github.com/myYearOfCode/launchpad.git`
+Then install the node dependencies with `npm install`
+Finally, start the server with `npm start`
+All of the questions are in the src/data folder. Have fun.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
