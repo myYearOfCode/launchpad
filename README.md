@@ -7,8 +7,14 @@ This is intended to reinforce the knowledge my classmates and I are getting in t
 ## Install
 
 Launchers: paste this into your terminal `git clone https://github.com/myYearOfCode/launchpad.git`
+
+
 Then install the node dependencies with `npm install`
+
+
 Finally, start the server with `npm start`
+
+
 All of the questions are in the src/data folder. Have fun.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
