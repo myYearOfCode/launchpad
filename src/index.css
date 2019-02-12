@@ -13,6 +13,20 @@ code {
     monospace;
 }
 
+#answer {
+  padding-top: 10px;
+}
+
+#outerContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  min-height: 80vh;
+}
+
+.secondary_text {
+  opacity: .5;
+}
 
 .hidden {
   visibility: hidden;
