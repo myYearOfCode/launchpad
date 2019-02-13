@@ -19,9 +19,10 @@ code {
 
 #outerContainer {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: space-between;
   min-height: 80vh;
+  max-width: 50vw;
 }
 
 .secondary_text {

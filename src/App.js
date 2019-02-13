@@ -2,21 +2,34 @@ import React, { Component } from 'react';
 import './App.css';
 import data from './data';
 
+
 let questionCounter = 0;
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      numCards: 0
+    }
+  }
   render() {
     let thisLanguage = data.javascript
     let thisQuestionString = thisLanguage[Math.floor(Math.random() * thisLanguage.length)]
     let [thisQuestion, thisAnswer] = thisQuestionString.split(":")
 
-    document.addEventListener ("keydown", function (zEvent) {
-      if (zEvent.metaKey  &&  zEvent.code === "Enter") {
-        // DO STUFF HERE
+    document.addEventListener ("keyup",  (zEvent) => {
+      // if (zEvent.metaKey  &&  zEvent.code === ArrowRight) {
+      if (zEvent.keyCode === 40) { // I NEED a debounce!
+        // "ArrowDown"
+        // "ArrowLeft"
+        // "ArrowRight"
+        // "ArrowUp"
         questionCounter += 1;
         console.log(questionCounter, (questionCounter % 2 !== 0))
         if (questionCounter % 2 !== 0){
           document.getElementById('answer').classList.add('visible')
           document.getElementById('answer').classList.remove('hidden')
+          console.log(this.state)
+          this.setState({ numCards: this.state.numCards + 1})
         }
         else {
           thisQuestionString = thisLanguage[Math.floor(Math.random() * thisLanguage.length)];
@@ -32,8 +45,8 @@ class App extends Component {
         <header className="App-header">
           <p>
             <div id="outerContainer">
-              <div id="stats" className="secondary_text">
-                {Math.floor(questionCounter/2.0)} cards
+              <div id="instructions" className="secondary_text">
+                command-enter to advance
               </div>
               <div id="qaWrapper">
                 <div id="question">
@@ -43,8 +56,8 @@ class App extends Component {
                   {thisAnswer}
                 </div>
               </div>
-              <div id="instructions" className="secondary_text">
-                command-enter to advance
+              <div id="stats" className="secondary_text">
+                {this.state.numCards} cards
               </div>
             </div>
           </p>
