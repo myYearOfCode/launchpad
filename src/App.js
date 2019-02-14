@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import data from './data';
-//make form inverted colors. white text
+import LanguageMenu from './components/LanguageMenu';
 
-let questionCounter = 0;
+// TODO:
+/*
+keep track of questions to prevent duplicates from showing up.
+*/
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -31,6 +35,7 @@ class App extends Component {
       currentQuestionString: this.questionString
     })
   }
+
   componentWillMount = () => {
     // let language = data.[language] // eventually have a picker
     this.getNewQuestion(data[this.state.language]) // for first run only
@@ -42,27 +47,18 @@ class App extends Component {
         this.setState({ numCards: this.state.numCards + 1})
       }
       if (zEvent.metaKey  &&  zEvent.keyCode === 191) {
-        questionCounter += 1;
+        // questionCounter += 1;
         setTimeout(this.showAnswer, 100)
       }
       // console.log(this.state)
     });
   }
 
-  languageMenu = () => {
-    let languages = (Object.keys(data))
-    let outHtml = "";
-    languages.forEach((language) => {
-      outHtml += `<a href="${language}>${language}</a>"`
-    })
-    return outHtml
-  }
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          {/* {this.languageMenu()} */}
+          {/* <LanguageMenu /> */}
             <div id="outerContainer">
               <div id="instructions" className="secondary_text">
                 <div id = "language">

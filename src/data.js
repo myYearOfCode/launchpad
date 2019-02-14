@@ -44,7 +44,7 @@ let data = {"javascript":[`what is repl?~Read Evaluate Print Loop`,
 `how do you typecast (coerce) a string named 'string' to an int?~string = string.to_i`,
 `how do you combine strings?~use the +`,
 'what is the format for string interpolation?~double quotes, and #{}',
-`how can you search within a string and get a boolean?~string.include('search string')`,
+`how can you search within a string and get a boolean?~string.include?('search string')`,
 `how can you search within a string and get the index?~string.index('search string')`,
 `how do you print to the screen?~puts or print, depending if you want a line ending or not`,
 `how would you create a new object of the class Dog named spot?~spot = Dog.new`,
@@ -93,7 +93,7 @@ end
 `How can you create a new hash named 'myHash'? (2 ways)~ myhash = {} or myHash = Hash.new`,
 `What is this (:dogs) called?~A symbol.`,
 `How do you iterate over a hash?~ .each, .each_key, and .each_value are some methods. You can also manually iterate over hashName.keys or hashName.values.`,
-`How can you see if a value is in a hash?~hashName.has_value (or .value) will return a bool.`,
+`How can you see if a value is in a hash?~hashName.has_value(value) (or .value(value)) will return a bool.`,
 `How can you see if a key is in a hash?~hashName[:symbol] or hashName['string'] depending on the key format. This will return nil if it isn't found and will then need to be dealt with. hashName.fetch(:symbol) will return an error. hashName.key? (or .has_key?) will return a boolean.`,
 `How do you reverse a string or array?~string.reverse will return it reversed but not mutate. string.reverse! will mutate.`
 ]
