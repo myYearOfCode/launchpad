@@ -7,6 +7,18 @@ import LanguageMenu from './components/LanguageMenu';
 /*
 keep track of questions to prevent duplicates from showing up.
 */
+// code below converted array data to json data.
+// let myObject = {}
+// for (let language in data) {
+//   myObject[language] = {}
+//   console.log(language)
+//   data[language].forEach((question, index) => {
+//     console.log(`************ ${question} **************`)
+//     myObject[language][index] = {'question' : question.split("~")[0], 'answer' : question.split("~")[1]}
+//   })
+// }
+// // console.dir(myObject)
+// console.log(JSON.stringify(myObject))
 
 class App extends Component {
   constructor(props){
@@ -34,9 +46,19 @@ class App extends Component {
       currentAnswer: this.questionString.split("~")[1],
       currentQuestionString: this.questionString
     })
+    this.updateCounters();
+  }
+
+  updateCounters = () => {
+   let counter = JSON.parse(window.localStorage.getItem('total_count'));
+   window.localStorage.setItem('total_count', JSON.stringify(counter + 1));
+   let session_counter = JSON.parse(window.localStorage.getItem('session_counter'));
+   window.localStorage.setItem('session_counter', JSON.stringify(session_counter + 1));
   }
 
   componentWillMount = () => {
+    //reset session_counter
+    window.localStorage.setItem('session_counter', JSON.stringify(0));
     // let language = data.[language] // eventually have a picker
     this.getNewQuestion(data[this.state.language]) // for first run only
     document.addEventListener ("keydown",  (zEvent) => {
@@ -55,6 +77,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
         <header className="App-header">
