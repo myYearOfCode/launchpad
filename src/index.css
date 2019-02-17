@@ -23,9 +23,8 @@ input[type="text"], textarea {
   background-color : #000000;
   color: #dddddd;
   border-width: 0px;
-
-
 }
+
 #answer {
   padding-top: 0px;
 }
@@ -38,12 +37,18 @@ input[type="text"], textarea {
   width: 50vw;
 }
 
+.languageMenu .language {
+padding:  0 0 0 0
+}
+
 .distributeEvenly {
   /* flex-grow: 1; */
   flex-basis: 33%;
 }
+
 .secondary_text {
   opacity: .5;
+  padding:  0 0 0 0;
 }
 
 .hidden {
