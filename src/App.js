@@ -48,7 +48,6 @@ class App extends Component {
     document.getElementsByClassName('textarea')[0].value = "" // reset text box
     }
     catch {
-  
     }
     let questionsRemaining = JSON.parse(window.localStorage.getItem('questionsRemaining'));
     let question;
@@ -109,17 +108,19 @@ class App extends Component {
   componentWillMount = () => {
     // reset session_counter
     window.localStorage.setItem('session_counter', JSON.stringify(0));
-    // console.log(this.state.language)
-    // let currentLanguage = this.state.language
-    // console.log(Object.keys(data2[currentLanguage]))
-    // window.localStorage.setItem('questionQueue', JSON.stringify(data2.javascript));
     window.localStorage.setItem('questionsRemaining', JSON.stringify(this.shuffle(Object.keys(data2.javascript))));
     this.getNewQuestionLocally() // for first run only
     document.addEventListener ("keydown",  (zEvent) => {
       if (zEvent.metaKey  &&  zEvent.keyCode === 13) {
-        this.hideAnswer()
-        setTimeout(this.getNewQuestionLocally(),100)
-        this.setState({ numCards: this.state.numCards + 1})
+        if (JSON.parse(window.localStorage.getItem('questionsRemaining')).length > 0){
+          this.hideAnswer()
+          setTimeout(this.getNewQuestionLocally(),100)
+          this.setState({ numCards: this.state.numCards + 1})
+        } else { // end of cards has been hit. reset it
+          setTimeout(this.getNewQuestionLocally(),100)
+          window.localStorage.setItem('questionsRemaining', JSON.stringify(this.shuffle(Object.keys(data2.javascript))));
+        }
+
       }
       if (zEvent.metaKey  &&  zEvent.keyCode === 191) {
         setTimeout(this.showAnswer, 100)
