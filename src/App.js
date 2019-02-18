@@ -27,11 +27,13 @@ class App extends Component {
     // console.log(e.target.classList[0])
     if (this.state.language !== e.target.classList[0]){
       this.setState({language: e.target.classList[0]})
+      this.loadNewLanguage();
     }
   }
 
-  loadNewLanguage = (language) => {
-    window.localStorage.setItem('questionsRemaining', JSON.stringify(this.shuffle(Object.keys(data2.javascript))));
+  loadNewLanguage = () => {
+    window.localStorage.setItem('questionsRemaining', JSON.stringify(this.shuffle(Object.keys(data2.default[this.state.language]))));
+    this.getNewQuestionLocally()
   }
 
   showAnswer = () => {
@@ -44,15 +46,15 @@ class App extends Component {
     document.getElementById('answer').classList.remove('visible')
   }
 
-  getNewQuestion = (language) => {
-    this.questionString = language[Math.floor(Math.random() * language.length)]
-    this.setState({
-      currentQuestion: this.questionString.split("~")[0],
-      currentAnswer: this.questionString.split("~")[1],
-      currentQuestionString: this.questionString
-    })
-    this.updateCounters();
-  }
+  // getNewQuestion = (language) => {
+  //   this.questionString = language[Math.floor(Math.random() * language.length)]
+  //   this.setState({
+  //     currentQuestion: this.questionString.split("~")[0],
+  //     currentAnswer: this.questionString.split("~")[1],
+  //     currentQuestionString: this.questionString
+  //   })
+  //   this.updateCounters();
+  // }
 
   getNewQuestionLocally = () => {
     if (document.readyState === 'complete') {
@@ -62,7 +64,7 @@ class App extends Component {
     let question;
     let answer;
     if (questionsRemaining.length > 0) {
-      let currentQuestion = data2.javascript[questionsRemaining.pop()]
+      let currentQuestion = data2.default[this.state.language][questionsRemaining.pop()]
       window.localStorage.setItem('questionsRemaining', JSON.stringify(questionsRemaining));
       question = currentQuestion['question']
       answer = currentQuestion['answer']
@@ -87,24 +89,19 @@ class App extends Component {
    * @return {String}      The first item in the shuffled array
    */
   shuffle = (array) => {
-
   	var currentIndex = array.length;
   	var temporaryValue, randomIndex;
-
   	// While there remain elements to shuffle...
   	while (0 !== currentIndex) {
   		// Pick a remaining element...
   		randomIndex = Math.floor(Math.random() * currentIndex);
   		currentIndex -= 1;
-
   		// And swap it with the current element.
   		temporaryValue = array[currentIndex];
   		array[currentIndex] = array[randomIndex];
   		array[randomIndex] = temporaryValue;
   	}
-
   	return array;
-
   };
 
   updateCounters = () => {
@@ -115,7 +112,6 @@ class App extends Component {
   }
 
   componentWillMount = () => {
-
     window.localStorage.setItem('session_counter', JSON.stringify(0)); // reset session_counter
     window.localStorage.setItem('questionsRemaining', JSON.stringify(this.shuffle(Object.keys(data2.javascript))));
     this.getNewQuestionLocally() // for first run only
