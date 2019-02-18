@@ -23,6 +23,17 @@ class App extends Component {
     }
   }
 
+  handleLanguageChange = (e) => {
+    // console.log(e.target.classList[0])
+    if (this.state.language !== e.target.classList[0]){
+      this.setState({language: e.target.classList[0]})
+    }
+  }
+
+  loadNewLanguage = (language) => {
+    window.localStorage.setItem('questionsRemaining', JSON.stringify(this.shuffle(Object.keys(data2.javascript))));
+  }
+
   showAnswer = () => {
     document.getElementById('answer').classList.add('visible')
     document.getElementById('answer').classList.remove('hidden')
@@ -44,10 +55,8 @@ class App extends Component {
   }
 
   getNewQuestionLocally = () => {
-    try {
-    document.getElementsByClassName('textarea')[0].value = "" // reset text box
-    }
-    catch {
+    if (document.readyState === 'complete') {
+      document.getElementsByClassName('textarea')[0].value = "" // reset text box
     }
     let questionsRemaining = JSON.parse(window.localStorage.getItem('questionsRemaining'));
     let question;
@@ -106,8 +115,8 @@ class App extends Component {
   }
 
   componentWillMount = () => {
-    // reset session_counter
-    window.localStorage.setItem('session_counter', JSON.stringify(0));
+
+    window.localStorage.setItem('session_counter', JSON.stringify(0)); // reset session_counter
     window.localStorage.setItem('questionsRemaining', JSON.stringify(this.shuffle(Object.keys(data2.javascript))));
     this.getNewQuestionLocally() // for first run only
     document.addEventListener ("keydown",  (zEvent) => {
@@ -141,7 +150,11 @@ class App extends Component {
                   {this.state.language}
                 </h1>
               </div>
-              <LanguageMenu languages={Object.keys(data)}/>
+
+              <LanguageMenu
+                languages={Object.keys(data)}
+                handleLanguageChange={this.handleLanguageChange}
+              />
               <div id="instructions" className="secondary_text">
                 '⌘ /'	to show answer, '⌘ enter'	to advance to next card
               </div>

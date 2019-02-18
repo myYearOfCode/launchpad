@@ -10,9 +10,18 @@ class languageMenu extends Component {
 
   menuMaker = () => {
     let languageHtml = this.props.languages.map((language,index) => (
-      <React.Fragment><a href={language} key={language}>{language}</a> &nbsp;</React.Fragment>
+      <React.Fragment key={`fragmentKey${language}`}>
+        {/* <a
+          href={language}
+          // onClick={this.props.handleLanguageChange(language)}
+          key={language}>
+          {language}
+        </a> */}
+        <button className = {language} onClick = {this.props.handleLanguageChange.bind(this)}>{language}</button>
+        &nbsp;
+      </React.Fragment>
       ))
-    return <div className = "languageMenu" key="languageMenu">{languageHtml}</div>
+    return <div className="languageMenu" key="languageMenu">{languageHtml}</div>
 
   }
   /*
