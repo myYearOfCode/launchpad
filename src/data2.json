@@ -353,6 +353,10 @@
       "51":{
          "question":"How do you reverse a string or array?",
          "answer":"string.reverse will return it reversed but not mutate. string.reverse! will mutate."
+      },
+      "52":{
+         "question":"How do you set a default method parameter?",
+         "answer":"simply assign a value in the method definition. You also have to put it last in the list."
       }
    }
 }

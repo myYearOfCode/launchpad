@@ -6,8 +6,11 @@ import LanguageMenu from './components/LanguageMenu';
 
 // TODO:
 /*
-keep track of questions to prevent duplicates from showing up.
-wipe text box on submission
+//keep track of questions to prevent duplicates from showing up.
+//wipe text box on submission
+make % counts for both languages.
+possibly show previous questions?
+possibly grading?
 ruby .index is actually .find_index
 make text field size bigger
 */

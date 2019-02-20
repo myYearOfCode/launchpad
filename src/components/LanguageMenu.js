@@ -12,8 +12,9 @@ class languageMenu extends Component {
     let languageHtml = this.props.languages.map((language,index) => (
       <React.Fragment key={`fragmentKey${language}`}>
         {/* <a
-          href={language}
-          // onClick={this.props.handleLanguageChange(language)}
+          href='#'
+          className = {language}
+          onClick = {this.props.handleLanguageChange.bind(this)}
           key={language}>
           {language}
         </a> */}
