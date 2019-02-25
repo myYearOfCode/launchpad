@@ -357,6 +357,14 @@
       "52":{
          "question":"How do you set a default method parameter?",
          "answer":"simply assign a value in the method definition. You also have to put it last in the list."
+      },
+      "53":{
+         "question":"What is the inverted form of an if statement?",
+         "answer":"unless."
+      },
+      "54":{
+         "question":"What is the inverted form of the while loop?",
+         "answer":"until."
       }
    }
 }
