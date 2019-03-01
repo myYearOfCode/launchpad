@@ -366,5 +366,74 @@
          "question":"What is the inverted form of the while loop?",
          "answer":"until."
       }
-   }
+   },
+   "SQL":{
+      "0":{
+         "question":"what does HAVING mean?",
+         "answer":"HAVING is the same as WHERE, but is used instead in aggregate functions."
+      },
+      "1":{
+         "question":"How do you sort results by name?",
+         "answer":"...ORDER BY name; (ASC; and DESC; are options.)"
+      },
+      "2":{
+         "question":"How would you limit to 5 results?",
+         "answer":"LIMIT 5; or LIMIT 5 OFFSET 5;"
+      },
+      "3":{
+         "question":"How do you keep only unique values?",
+         "answer":"SELECT DISTINCT xxx FROM yyy."
+      },
+      "4":{
+         "question":"How do you combine 2 tables?",
+         "answer":"SELECT c.address, s.ship_date FROM customers c INNER JOIN shipments s ON c.id = s.id."
+      },
+      "5":{
+         "question":"How can you write a comment?",
+         "answer":"-- is how you start a comment."
+      },
+      "6":{
+         "question":"What are the 2 wildcard characters and why are they different?",
+         "answer":"'%' is used for any number of wildcards and _ is used for exactly one."
+      },
+      "7":{
+         "question":"How do you check if a value is in a list?",
+         "answer":"WHERE city IN ('boston','boulder')."
+      },
+      "8":{
+         "question":"How can you check if a value is in a range?",
+         "answer":"WHERE x BETWEEN 15 AND 30."
+      },
+      "9":{
+         "question":"What is the SQL !== sign?",
+         "answer":"<>"
+      },
+      "10":{
+         "question":"How can you filter results so they are only values over 20?",
+         "answer":"WHERE value > 20."
+      },
+      "11":{
+         "question":"Filter for name = fred and color = blue?",
+         "answer":"WHERE name = 'fred'\n AND color = blue."
+      },
+      "12":{
+         "question":"Select a column from a table.",
+         "answer":"SELECT column_name FROM table_name."
+      },
+      "13":{
+         "question":"How do you insert data into a table?",
+         "answer":"INSERT INTO orders (name, price, id)\n VALUES('bike, 3200.00, 1')."
+      },
+      "14":{
+         "question":"How can you create a table?",
+         "answer":"CREATE TABLE tablename(\nid SERIAL PRIMARY KEY,\nname VARCHAR(20) NOT NULL\n);"
+      },
+      "15":{
+         "question":"What are aggregate functions?",
+         "answer":"Sort of like reduce - aggregate functions perform an operation on an entire column. ( count / min / max / avg / sum )"
+      },
+      "16":{
+         "question":"How do you use GROUP BY?",
+         "answer":"This subdivides an aggregate function so that it aggregates the data into 'buckets' based on the selected attribute. ie aggregate speed GROUP BY age"
+      },
 }
