@@ -180,7 +180,7 @@
       },
       "8":{
          "question":"how can you search within a string and get the index?",
-         "answer":"string.index('search string')"
+         "answer":"string.index_of('search string')"
       },
       "9":{
          "question":"how do you print to the screen?",
@@ -276,7 +276,7 @@
       },
       "32":{
          "question":"check if an array has an element equal to x. (you are looking for the index)",
-         "answer":"array.index(element)"
+         "answer":"array.index_of(element)"
       },
       "33":{
          "question":"delete an element of an array",
@@ -434,6 +434,34 @@
       },
       "16":{
          "question":"How do you use GROUP BY?",
-         "answer":"This subdivides an aggregate function so that it aggregates the data into 'buckets' based on the selected attribute. ie aggregate speed GROUP BY age"
-      },
+         "answer":"This subdivides an aggregate function so that it aggregates the data into `buckets` based on the selected attribute. ie aggregate speed GROUP BY age"
+      }
+    },
+    "week 1 - rspec and ruby":{
+       "0":{
+          "question":"are instance variables accessible outside of the object?",
+          "answer":"no"
+       },
+       "1":{
+         "question":"are instance variables accessible outside of the constructor?",
+         "answer":"yes"
+       },
+       "2":{
+          "question":"are instance methods accessible outside of the object?",
+          "answer":"yes"
+       },
+       "3":{
+          "question":"how do you make an instance method unaccessible outside of the object?",
+          "answer":"'private' will make everything below it a private method."
+       },
+       "4":{
+          "question":"Why would you make an instance variable?",
+          "answer":"So that you can access the arguments (passed into the Classname.new() constructor) outside of the constructor scope. It also allows you to make them accessible outside of the object scope."
+       },
+       "5":{
+          "question":"how do you make an instance variable accessible outside of the object?",
+          "answer":"Either make a reader method or use attr_reader / attr_writer / attr_accessor."
+       },
+
+     }
 }
