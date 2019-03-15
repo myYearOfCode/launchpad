@@ -2,3 +2,5 @@
 'npm run deploy' to push to github.io
 this was set up with create-react-app and the directions here
 https://facebook.github.io/create-react-app/docs/deployment
+
+npm install gh-pages --save-dev

@@ -8,10 +8,13 @@ import LanguageMenu from './components/LanguageMenu';
 /*
 //keep track of questions to prevent duplicates from showing up.
 //wipe text box on submission
+build into components the right way.
 make % counts for both languages.
-possibly show previous questions?
+show previous questions
+auto-generate buttons for new subjects
+make "shuffle mode"
+set colors for backgrounds that changes per language (to subliminally set space)
 possibly grading?
-ruby .index is actually .find_index
 make text field size bigger
 */
 
@@ -49,16 +52,6 @@ class App extends Component {
     document.getElementById('answer').classList.remove('visible')
   }
 
-  // getNewQuestion = (language) => {
-  //   this.questionString = language[Math.floor(Math.random() * language.length)]
-  //   this.setState({
-  //     currentQuestion: this.questionString.split("~")[0],
-  //     currentAnswer: this.questionString.split("~")[1],
-  //     currentQuestionString: this.questionString
-  //   })
-  //   this.updateCounters();
-  // }
-
   getNewQuestionLocally = () => {
     if (document.readyState === 'complete') {
       document.getElementsByClassName('textarea')[0].value = "" // reset text box
@@ -85,12 +78,6 @@ class App extends Component {
     this.updateCounters();
   }
 
-  /**
-   * Randomly shuffle an array
-   * https://stackoverflow.com/a/2450976/1293256
-   * @param  {Array} array The array to shuffle
-   * @return {String}      The first item in the shuffled array
-   */
   shuffle = (array) => {
   	var currentIndex = array.length;
   	var temporaryValue, randomIndex;
@@ -115,6 +102,11 @@ class App extends Component {
   }
 
   componentWillMount = () => {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
     window.localStorage.setItem('session_counter', JSON.stringify(0)); // reset session_counter
     window.localStorage.setItem('questionsRemaining', JSON.stringify(this.shuffle(Object.keys(data2.javascript))));
     this.getNewQuestionLocally() // for first run only
