@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/launchpad/static/js/runtime~main.a340fc0d.js"
   },
   {
-    "revision": "ae3bd5c1e2afd3743baa",
-    "url": "/launchpad/static/js/main.ae3bd5c1.chunk.js"
+    "revision": "245ce7f336d87c12c7e5",
+    "url": "/launchpad/static/js/main.245ce7f3.chunk.js"
   },
   {
     "revision": "e8b40382bd556a119ad2",
     "url": "/launchpad/static/js/2.e8b40382.chunk.js"
   },
   {
-    "revision": "ae3bd5c1e2afd3743baa",
+    "revision": "245ce7f336d87c12c7e5",
     "url": "/launchpad/static/css/main.1215cf81.chunk.css"
   },
   {
-    "revision": "b601e36af03c068bb67bb0a24bd96df6",
+    "revision": "807262db8ed1a643343819732de12c89",
     "url": "/launchpad/index.html"
   }
 ];
