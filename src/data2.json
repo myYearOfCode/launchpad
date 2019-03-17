@@ -514,5 +514,51 @@
 			"question": "how do you make an instance variable accessible outside of the object?",
 			"answer": "Either make a reader method or use attr_reader / attr_writer / attr_accessor."
 		}
+	},
+	"week_2": {
+		"0": {
+			"question":"what parts of the url https://google.com/search#last can you label?",
+			"answer":"scheme - https, hostname - google.com, path - /search, and fragment - #last"
+		},
+		"1": {
+			"question":"what is a scheme?",
+			"answer":"the method you are using to connect to the other computer"
+		},
+		"2": {
+			"question":"what is a hostname?",
+			"answer":"The domain name (with subdomains) that is looked up into an ip and then tells your packet where to be delivered."
+		},
+		"3": {
+			"question":"what is a path?",
+			"answer":"either a file on the server or a piece of code running on the server that will respond to an input."
+		},
+		"4": {
+			"question":"what is a query?",
+			"answer":"a variable piece of data that is passed to the server separate from the path."
+		},
+		"5": {
+			"question":"what is a fragment?",
+			"answer":"essentially a bookmark to a place on the page."
+		},
+		"6": {
+			"question":"what does CRUD stand for?",
+			"answer":"Create\nRead\nUpdate\nDelete"
+		},
+		"7": {
+			"question":"what http requests are used for each step of CRUD?",
+			"answer":"Create -> POST, Read -> GET, Update -> PUT or PATCH, Delete -> DELETE"
+		},
+		"8": {
+			"question":"what does rest stand for?",
+			"answer":"representational state transfer"
+		},
+		"9": {
+			"question":"what curl flag will let you see the headers?",
+			"answer":"--verbose"
+		},
+		"10": {
+			"question":"what does erb stand for?",
+			"answer":"embedded ruby"
+		}
 	}
 }
